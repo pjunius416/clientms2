@@ -17,8 +17,9 @@
         <span class="font-muted">email: {{ client.email }} | </span>
       </div>
       <div class="card-body">
-        <p>{{client.notes}}</p>
-
+        <p>{{ client.notes }}</p>
+        <a href="{% url 'client_edit' client.pk %}">Edit</a> |
+        <a href="{% url 'client_delete' client.pk %}">Delete</a>
       </div>
       <div class="card-footer">
         {% for comment in client.comments.all %}
