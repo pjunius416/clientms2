@@ -26,6 +26,7 @@
         <p>Client Notes: {{ client.notes }}</p>
         <a href="{% url 'client_edit' client.pk %}">Edit Client</a> |
         <a href="{% url 'client_delete' client.pk %}">Delete Client</a> |
+        <a href="{% url 'comment_new' client.pk %}">Add Comment</a> |
         <a href="{% url 'vehicle_new' %}">Add Vehicle</a> 
       </div>
       <div class="card-footer">

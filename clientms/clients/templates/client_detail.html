@@ -7,6 +7,7 @@
     <p>{{ object.note }}</p>
   </div>
 
-  <p><a href="{% url 'client_edit' client.pk %}">Edit</a> | <a href="{% url 'client_delete' client.pk %}">Delete</a></p>
+  <p><a href="{% url 'client_edit' client.pk %}">Edit</a> | <a href="{% url 'client_delete' client.pk %}">Delete</a> |
+    <a href="{% url 'comment_new' client.pk %}">Add Comment</a> </p>
   <p>Back to <a href="{% url 'client_list' %}">All Clients</a>.</p>
 {% endblock content %}

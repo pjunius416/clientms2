@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic import ListView, DetailView
-from .models import Client
+from .models import Client, Comment
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 
 #ClientRelatedViews
 class ClientListView(LoginRequiredMixin, ListView):
@@ -33,3 +34,10 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+#CommentRelatedViews
+class CommentUpdateView(LoginRequiredMixin, CreateView):
+    model = Comment
+    fields = ('client','comment', 'author')
+    template_name = 'client_comment.html'
+    login_url = 'login'
