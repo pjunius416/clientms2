@@ -15,7 +15,7 @@ class VehicleInformation(models.Model):
     vin_number = models.CharField(max_length=17,blank=True, null=True, default='')
     date_purchased = models.CharField(max_length=17,blank=True, null=True, default='')
     date_last_serviced = models.CharField(max_length=17,blank=True, null=True, default='')
-    service_received = models.CharField(max_length=300,blank=True, null=True, default='')
+    service_received = models.TextField()
     serviced_by = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,

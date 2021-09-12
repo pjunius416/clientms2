@@ -1,14 +1,15 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic import ListView, DetailView
 from .models import Client, Comment
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
 
 #ClientRelatedViews
-class ClientListView(LoginRequiredMixin, ListView):
+class ClientListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Client
     template_name = 'client_list.html'
+    permission_required = ('')
+    
     
 class ClientDetailView(LoginRequiredMixin, DetailView):
     model = Client
