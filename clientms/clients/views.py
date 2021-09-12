@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic import ListView, DetailView
-from .models import Client,VehicleInformation
+from .models import Client
 from django.urls import reverse_lazy
 
 #ClientRelatedViews
@@ -33,8 +33,3 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
-#VehicleRelatedViews
-class VehicleListView(LoginRequiredMixin, ListView):
-    model = VehicleInformation
-    template_name = 'vehicle_list.html'
