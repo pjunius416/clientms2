@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic import ListView, DetailView
-from .models import models
-from .models import Client
+from .models import Client,VehicleInformation
 from django.urls import reverse_lazy
 
+#ClientRelatedViews
 class ClientListView(LoginRequiredMixin, ListView):
     model = Client
     template_name = 'client_list.html'
@@ -34,3 +34,7 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+#VehicleRelatedViews
+class VehicleListView(LoginRequiredMixin, ListView):
+    model = VehicleInformation
+    template_name = 'vehicle_list.html'
