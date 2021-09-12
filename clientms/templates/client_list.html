@@ -15,13 +15,21 @@
         <span class="font-muted">st: {{ client.state }} | </span>
         <span class="font-muted">zip: {{ client.zipcode }} | </span>
         <span class="font-muted">email: {{ client.email }} | </span>
+        <br><br/>
+        {% for vehicle in client.vehicles.all %}
+        <span class="font-weight-bold">Vehicle: {{ vehicle.make }} {{ vehicle.model }} </span> <br>
+        <span class="font-muted">Last Serviced: {{ vehicle.date_last_serviced }} by {{ vehicle.serviced_by }} </span> <br>
+        <span class="font-muted">Serviced Received: {{ vehicle.service_received }} </span> <br>
+        <a href="{% url 'vehicle_edit' client.pk %}">Edit Vehicle Information</a>
+        {% endfor %}
       </div>
       <div class="card-body">
-        <p>{{ client.notes }}</p>
+        <p>Client Notes: {{ client.notes }}</p>
         <a href="{% url 'client_edit' client.pk %}">Edit</a> |
         <a href="{% url 'client_delete' client.pk %}">Delete</a>
       </div>
       <div class="card-footer">
+        <span class="font-weight-bold">Employee Comments:</span>
         {% for comment in client.comments.all %}
           <p>
             <span class="font-weight-bold">{{ comment.author }} &middot;</span>
@@ -29,7 +37,6 @@
           </p>
         {% endfor %}
       </div>
-    </div>
     <br />
   {% endfor %}
 {% endblock content %}
