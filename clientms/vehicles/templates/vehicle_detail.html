@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="vehicle-entry">
+  <h2>{{ object.make }} {{ object.model }}</h2>
+    <p>Owner: {{ object.client }}</p>
+    <p>Last Serviced: {{ object.date_last_serviced }} by {{ object.serviced_by }}</p>
+  </div>
+  <p><a href="{% url 'vehicle_edit' vehicleinformation.pk %}">Edit</a> | <a href="{% url 'vehicle_delete' vehicleinformation.pk %}">Delete</a></p>
+  <p>Back to <a href="{% url 'vehicle_list' %}">All Vehicles</a>.</p>
+{% endblock content %}

@@ -13,9 +13,9 @@ class VehicleInformation(models.Model):
     make = models.CharField(max_length=50,blank=False, null=False, default=' ')
     model = models.CharField(max_length=50,blank=False, null=False, default=' ')
     vin_number = models.CharField(max_length=17,blank=True, null=True, default='')
-    date_purchased = models.DateTimeField(auto_now_add=True)
-    date_last_serviced = models.DateTimeField(auto_now_add=True)
-    service_received = models.CharField(max_length=300)
+    date_purchased = models.CharField(max_length=17,blank=True, null=True, default='')
+    date_last_serviced = models.CharField(max_length=17,blank=True, null=True, default='')
+    service_received = models.CharField(max_length=300,blank=True, null=True, default='')
     serviced_by = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
@@ -25,4 +25,4 @@ class VehicleInformation(models.Model):
         return self.vin_number
 
     def get_absolute_url(self):
-        return reverse('Client_list')
+        return reverse('vehicle_detail', args=[str(self.id)])
