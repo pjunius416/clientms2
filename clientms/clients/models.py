@@ -20,7 +20,7 @@ class Client(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
     def get_absolute_url(self):
         return reverse('client_detail', args=[str(self.id)])
@@ -38,7 +38,7 @@ class Comment(models.Model):
     )
 
     def __str__(self):
-        return self.comment
+        return self.comment or ''
 
     def get_absolute_url(self):
         return reverse('client_list')
