@@ -140,5 +140,5 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL ='/media/'
 
-#Deployment settings
-django_heroku.settings(locals())
+# #Deployment settings
+# django_heroku.settings(locals())
