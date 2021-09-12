@@ -1,1 +1,1 @@
-web: gunicorn clientms.wsgi --log-file -
+web: gunicorn --chdir clientms clientms.wsgi --log-file -
