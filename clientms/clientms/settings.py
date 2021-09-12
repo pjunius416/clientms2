@@ -26,7 +26,7 @@ SECRET_KEY = '1tfmpqbmif=b)clv$@bnenz^wylxxat1$l)t%5l5jej%p!$8kd'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
